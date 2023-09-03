@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feroza's Content</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your CSS styling for the profile section here */
+        .profile-section {
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK_ifLpQldM0CQaW-BFt9fpWXq0z8JGDa4NI-t8eunXPFjRtSd&s");
+            background-size: contain;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .profile-picture {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .content-table {
+            width: 100%;
+            text-align: center;
+        }
+
+        .content-table th {
+            padding: 10px;
+        }
+
+        .content-table td {
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function switchTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.style.display = 'none';
+            });
+
+            const selectedTab = document.querySelector('.' + tabName);
+            selectedTab.style.display = 'block';
+        }
+
+        window.onload = function() {
+            // Initial tab setup
+            switchTab('videos'); // Show videos tab by default
+
+            // Count the number of videos and pictures
+            const numVideos = document.querySelectorAll('.video-item').length;
+            const numPictures = document.querySelectorAll('.picture-item').length;
+
+            // Display counts and subscription amount
+            document.getElementById('video-count').textContent = numVideos;
+            document.getElementById('picture-count').textContent = numPictures;
+
+            // You can calculate subscription amounts based on your pricing model and display them here
+            const subscriptionAmount = 9.99; // Replace with your actual calculation
+            document.getElementById('subscription-amount').textContent = '$' + subscriptionAmount.toFixed(2);
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <!-- Your navigation here -->
+    </header>
+
+    <main>
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <img class="profile-picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUUhatdJwAtK3pVs_qVD6N49cb-onou0UHv38qZHvIwpWfD9s&s" alt="Profile Picture">
+            <h1>Feroza </h1>
+
+
+            <button class="subscribe-button">Subscribe</button>
+        </section>
+
+        <!-- Content Tabs in a Table -->
+        <section class="content">
+            <h2>Content Overview</h2>
+            <table class="content-table">
+                <tr>
+                    <th><a href="#" onclick="switchTab('videos')">Videos</a></th>
+                    <th><a href="#" onclick="switchTab('pictures')">Pictures</a></th>
+                </tr>
+                <tr>
+                    <td>Total videos: <span id="video-count">0</span></td>
+                    <td>Total pictures: <span id="picture-count">0</span></td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Videos Tab -->
+
+
+        <!-- Subscription amount -->
+        <p>Subscription Amount: <span id="subscription-amount">R100.00</span>/month</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Feroza. All rights reserved.</p>
+    </footer>
+</body>
+</html>
